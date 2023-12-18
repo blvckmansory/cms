@@ -1,8 +1,8 @@
 {
-    "extends": "@strapi/typescript-utils/tsconfigs/admin",
-    "compilerOptions": {
-        "resolveJsonModule": true
-    },
-    "include": ["../plugins/**/admin/src/**/*", "./"],
-    "exclude": ["node_modules/", "build/", "dist/", "**/*.test.ts"]
+	"extends": "@strapi/typescript-utils/tsconfigs/admin",
+	"compilerOptions": {
+		"resolveJsonModule": true
+	},
+	"include": ["../plugins/**/admin/src/**/*", "./"],
+	"exclude": ["node_modules/", "build/", "dist/", "**/*.test.ts"]
 }
