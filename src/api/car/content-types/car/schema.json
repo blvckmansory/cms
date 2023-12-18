@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars",
+  "info": {
+    "singularName": "car",
+    "pluralName": "cars",
+    "displayName": "Car",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "carName": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "minMinuteRate": {
+      "type": "float",
+      "required": true
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "isWrapped": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "isHot": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "sideImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "car-info.side-image"
+    },
+    "kmCost": {
+      "type": "float",
+      "required": false
+    },
+    "minutes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rate-types.minutes",
+      "required": true,
+      "max": 2,
+      "min": 2
+    },
+    "rate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rate.rate",
+      "inversedBy": "cars"
+    }
+  }
+}

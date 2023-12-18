@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hints",
+  "info": {
+    "singularName": "hint",
+    "pluralName": "hints",
+    "displayName": "Hint",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hintType": {
+      "type": "enumeration",
+      "enum": [
+        "HINT",
+        "INSTRUCTION",
+        "FRIENDSHIP_RULE"
+      ],
+      "required": true
+    },
+    "hintName": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 40
+    },
+    "videoURL": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

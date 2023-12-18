@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_rate_types_minutes_and_kms",
+  "info": {
+    "displayName": "minutesAndKms",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "halfHourRate": {
+      "type": "float"
+    },
+    "hourRate": {
+      "type": "float"
+    },
+    "twoHoursRate": {
+      "type": "float"
+    }
+  }
+}

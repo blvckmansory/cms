@@ -1,0 +1,46 @@
+version: '3'
+
+volumes:
+  postgres_data_local: {}
+  postgres_backup_local: {}
+
+services:
+  db:
+    container_name: hello-db
+    image: postgres
+    restart: always
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data
+      - postgres_backup_local:/backups
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    ports:
+    - '${DATABASE_PORT}:${DATABASE_PORT}'
+  bdbackups:
+        container_name: hello-db-backups
+        image: prodrigestivill/postgres-backup-local
+        restart: always
+        user: postgres:postgres # Optional: see below
+        volumes:
+            - /var/opt/pgbackups:/backups
+        links:
+            - db
+        depends_on:
+            - db
+        environment:
+            - POSTGRES_HOST=${DATABASE_CLIENT}
+            - POSTGRES_DB=${DATABASE_NAME}
+            - POSTGRES_USER=${DATABASE_USERNAME}
+            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+            - POSTGRES_EXTRA_OPTS=-Z6 --schema=public --blobs
+            - SCHEDULE=@hourly
+            - BACKUP_KEEP_DAYS=7
+            - BACKUP_KEEP_WEEKS=4
+            - BACKUP_KEEP_MONTHS=6
+            - HEALTHCHECK_PORT=8080
+

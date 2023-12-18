@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_rate_types_minutes",
+  "info": {
+    "displayName": "minutes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "minuteRate": {
+      "type": "float",
+      "required": true
+    },
+    "minuteRateParking": {
+      "type": "float",
+      "required": true
+    },
+    "isResident": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

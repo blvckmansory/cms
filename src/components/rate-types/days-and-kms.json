@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_rate_types_days_and_kms",
+  "info": {
+    "displayName": "daysAndKms",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "dayRate": {
+      "type": "float"
+    },
+    "twoDaysRate": {
+      "type": "float"
+    },
+    "threeDaysRate": {
+      "type": "float"
+    },
+    "fiveDaysRate": {
+      "type": "float"
+    },
+    "sevenDaysRate": {
+      "type": "float"
+    },
+    "fourteenDaysRate": {
+      "type": "float"
+    }
+  }
+}

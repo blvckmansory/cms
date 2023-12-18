@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_rates_info_rate_types_with_conditions",
+  "info": {
+    "displayName": "rateTypesWithConditions"
+  },
+  "options": {},
+  "attributes": {
+    "isResident": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "experienceMoreThanYear": {
+      "type": "boolean",
+      "required": false
+    },
+    "overTwentyThreeYears": {
+      "type": "boolean"
+    },
+    "minutesAndKms": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rate-types.minutes-and-kms"
+    },
+    "hoursAndKms": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rate-types.hours-and-kms"
+    },
+    "daysAndKms": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rate-types.days-and-kms"
+    }
+  }
+}

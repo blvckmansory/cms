@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_car_info_side_images",
+  "info": {
+    "displayName": "sideImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
