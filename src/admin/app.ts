@@ -46,7 +46,7 @@ export default {
 		tutorials: false,
 		notifications: { releases: false },
 	},
-	bootstrap: (app: any) => {
+	bootstrap: (app: unknown) => {
 		console.log(app)
 	},
 }
