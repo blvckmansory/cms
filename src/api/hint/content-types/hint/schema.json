@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "hintType": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "HINT",
@@ -21,18 +21,17 @@
       ],
       "required": true
     },
-    "hintName": {
-      "type": "string",
-      "required": true,
-      "unique": false,
-      "maxLength": 40
-    },
     "videoURL": {
       "type": "string"
     },
-    "description": {
+    "content": {
       "type": "richtext",
       "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
     }
   }
 }
