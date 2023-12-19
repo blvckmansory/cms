@@ -36,10 +36,6 @@
 		"styled-components": "^5.2.1"
 	},
 	"devDependencies": {},
-	"engines": {
-		"node": ">=16.0.0 <=18.x.x",
-		"yarn": ">=1.20.0"
-	},
 	"strapi": {
 		"uuid": "9c337e42-5f96-485e-8431-3e170aeea42d"
 	}
