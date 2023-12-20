@@ -482,5 +482,10 @@
 	"notification.success.saved": "Сохранено",
 	"notification.version.update.message": "Доступна новая версия Strapi!",
 	"or": "ИЛИ",
-	"request.error.model.unknown": "Модель данных не существует"
+	"request.error.model.unknown": "Модель данных не существует",
+	"import-export-entries.plugin.name": "Импорт & Экспорт",
+	"import-export-entries.plugin.description": "Позволяет импортировать и экспортировать данные в базу данных.",
+	"import-export-entries.plugin.cta.export": "Экспорт",
+	"import-export-entries.plugin.cta.import": "Импорт",
+	"react-icons.plugin.name": "Библиотека иконок"
 }

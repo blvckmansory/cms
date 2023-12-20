@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "carName": {
+    "name": {
       "type": "string",
       "required": true,
       "unique": false
@@ -47,7 +47,9 @@
     "sideImages": {
       "type": "component",
       "repeatable": true,
-      "component": "car-info.side-image"
+      "component": "car-info.side-image",
+      "required": true,
+      "min": 1
     },
     "kmCost": {
       "type": "float",
@@ -65,6 +67,18 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::rate.rate",
+      "inversedBy": "cars"
+    },
+    "characteristics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "car-info.car-sharacteristics",
+      "required": true
+    },
+    "carType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::car-type.car-type",
       "inversedBy": "cars"
     }
   }

@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "type": {
+    "hintType": {
       "type": "enumeration",
       "enum": [
         "HINT",

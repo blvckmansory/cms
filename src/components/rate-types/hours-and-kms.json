@@ -7,13 +7,22 @@
   "options": {},
   "attributes": {
     "threeHoursRate": {
-      "type": "float"
+      "type": "float",
+      "required": false
     },
     "sixHoursRate": {
-      "type": "float"
+      "type": "float",
+      "required": false
     },
     "nineHoursRate": {
-      "type": "float"
+      "type": "float",
+      "required": false
+    },
+    "conditions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rates-info.rate-types-with-conditions",
+      "required": true
     }
   }
 }

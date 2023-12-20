@@ -23,6 +23,12 @@
     },
     "fourteenDaysRate": {
       "type": "float"
+    },
+    "conditions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rates-info.rate-types-with-conditions",
+      "required": true
     }
   }
 }

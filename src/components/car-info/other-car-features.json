@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_car_info_other_car_features",
+  "info": {
+    "displayName": "OtherCarFeatures",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
