@@ -4,7 +4,8 @@
   "info": {
     "singularName": "welcome",
     "pluralName": "welcomes",
-    "displayName": "Welcome"
+    "displayName": "Приветствие",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,26 +13,26 @@
   "pluginOptions": {},
   "attributes": {
     "home": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "business": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     }
   }
 }
