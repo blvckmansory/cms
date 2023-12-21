@@ -49,12 +49,11 @@ const brandTranslations = {
 	// 'multi-select.plugin.name': 'Мульти-Селект',
 	// 'admin.pages.MarketPlacePage.helmet': 'Библиотека плагинов',
 	// 'app.components.HomePage.welcome': 'Добро пожаловать!',
-	// 'app.components.HomePage.welcome.again': 'И снова здравствуй!',
+	// 'app.components.HomePage.welcome.again': 'И снова здравствуйте!',
 	'plugin.schema.i18n.localized.label-content-type': 'i18n',
 	'plugin.schema.i18n.localized.label-field-type': 'i18n',
 	'Auth.form.welcome.title': 'Админ панель хеллошки!',
 	'Auth.form.welcome.subtitle': 'Войдите и настраивайте!',
-	'app.components.LeftMenu.navbrand.title': 'Hello.by',
 }
 
 export default {
@@ -100,10 +99,11 @@ export default {
 			logo: HelloLogo,
 		},
 		translations: {
-			// en: {
+			en: {
 			// 	...ru,
-			// 	...brandTranslations,
-			// },
+			'app.components.LeftMenu.navbrand.title': 'Hello.by',
+			"app.components.LeftMenu.navbrand.workplace": "Admin panel",
+			},
 			ru: {
 				...ru,
 				...brandTranslations,

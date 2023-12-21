@@ -23,9 +23,4 @@ module.exports = {
             alwaysAddEnumSuffix: false
         }
     },
-    menus: {
-        config: {
-        maxDepth: 3,
-        },
-    },
 }
