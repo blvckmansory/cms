@@ -1,7 +1,17 @@
 import ru from './src/translations/ru.json'
-import HelloLogo from './extensions/favicon.png';
+import HelloLogo from './extensions/favicon.png'
 
 const brandTranslations = {
+	'rate-types': 'Типы тарифов',
+	Document: 'Документ',
+	notFound: '404',
+	noData: 'Нет данных',
+	internalError: '500',
+	first: 'Первая',
+	second: 'Вторая',
+	third: 'Третья',
+	home: 'Главная',
+	business: 'Бизнес',
 	Car: 'Машина',
 	CarType: 'Тип машины',
 	Hint: 'Подсказка',
@@ -40,16 +50,19 @@ const brandTranslations = {
 	daysAndKms: 'Сутки и км',
 	hoursAndKms: 'Часы и км',
 	minutesAndKms: 'Минуты и км',
-	"content-manager.containers.ListPage.table-headers.publishedAt": 'Тарифы с условиями',
+	'content-manager.containers.ListPage.table-headers.publishedAt': 'Тарифы с условиями',
+
+	'Media Library': 'Медиа-Библиотека',
+	'Content Type Builder': 'Конструктор типов',
+	'content-type-builder.plugin.name': 'Конструктор типов',
 
 	// 'HomePage.helmet.title': 'Домашняя страница',
 	// 'Content Type Builder': 'Конструктор типов',
-	// 'content-type-builder.plugin.name': 'Конструктор типов',
 	// 'notification.error.revalidate': 'Ошибка ревалидации',
-	// 'multi-select.plugin.name': 'Мульти-Селект',
-	// 'admin.pages.MarketPlacePage.helmet': 'Библиотека плагинов',
-	// 'app.components.HomePage.welcome': 'Добро пожаловать!',
-	// 'app.components.HomePage.welcome.again': 'И снова здравствуйте!',
+	'multi-select.plugin.name': 'Мульти-Селект',
+	'admin.pages.MarketPlacePage.helmet': 'Библиотека плагинов',
+	'app.components.HomePage.welcome': 'Добро пожаловать!',
+	'app.components.HomePage.welcome.again': 'И снова здравствуйте!',
 	'plugin.schema.i18n.localized.label-content-type': 'i18n',
 	'plugin.schema.i18n.localized.label-field-type': 'i18n',
 	'Auth.form.welcome.title': 'Админ панель хеллошки!',
@@ -69,7 +82,7 @@ export default {
 					primary700: '#000000',
 					buttonPrimary500: '#000000',
 					buttonPrimary600: '#000000',
-				}
+				},
 			},
 			dark: {
 				colors: {
@@ -85,8 +98,8 @@ export default {
 					buttonNeutral0: '#000000',
 					buttonPrimary500: '#60ff6d',
 					buttonPrimary600: '#60ff6d',
-				}
-			}
+				},
+			},
 		},
 		auth: {
 			logo: HelloLogo,
@@ -100,9 +113,9 @@ export default {
 		},
 		translations: {
 			en: {
-			// 	...ru,
-			'app.components.LeftMenu.navbrand.title': 'Hello.by',
-			"app.components.LeftMenu.navbrand.workplace": "Admin panel",
+				// 	...ru,
+				'app.components.LeftMenu.navbrand.title': 'Hello.by',
+				'app.components.LeftMenu.navbrand.workplace': 'Admin panel',
 			},
 			ru: {
 				...ru,
@@ -113,6 +126,6 @@ export default {
 		notifications: { releases: false },
 	},
 	bootstrap: (app: any) => {
-		console.log(app)
+		document.title = 'Hello.by | Управление сайтом'
 	},
 }

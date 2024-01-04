@@ -1,41 +1,80 @@
 /**
- * car controller
+ * @implements `Car` controller
  */
 
-import {factories} from '@strapi/strapi'
-import {URLSearchParams} from "node:url";
+import { URLSearchParams } from 'node:url'
+
+import { factories } from '@strapi/strapi'
+
+const uid = 'api::car.car' as const
 
 export const parseQueryParams = (url: string): URLSearchParams => {
-    const queryString = url.split('?').at(-1) || ''
-    return new URLSearchParams(queryString)
+	const queryString = url.split('?').at(-1) || ''
+	return new URLSearchParams(queryString)
 }
 
-export default factories.createCoreController('api::car.car', ({strapi}) => ({
+export default factories.createCoreController(uid, ({ strapi }) => ({
+	async random(ctx) {
+		const queryParams = parseQueryParams(ctx.url)
+		const excludeId = queryParams.get('id') || 0
 
-    async random(ctx) {
-        const queryParams = parseQueryParams(ctx.url)
-        const excludeId = queryParams.get('id')
+		const ids = (
+			await strapi.db.connection
+				.select('id')
+				.from(strapi.getModel(uid).collectionName)
+				.whereNotIn('id', [excludeId])
+				.orderByRaw('RANDOM()')
+				.limit(3)
+		).map((it) => it.id)
 
-        const uid = "api::car.car" as const;
+		const result = await strapi.entityService.findMany(uid, {
+			populate: {
+				carType: {
+					fields: ['id', 'name'],
+				},
+				previewImage: {
+					fields: ['url', 'alternativeText'],
+				},
+			},
+			fields: ['name', 'minMinuteRate', 'isWrapped'],
+			filters: {
+				id: {
+					$in: ids,
+				},
+			},
+		})
 
-        const ids = (
-            await strapi.db.connection
-                .select("id")
-                .from(strapi.getModel(uid).collectionName).whereNotIn("id", [excludeId])
-                .orderByRaw("RANDOM()")
-                .limit(3)
-        ).map(it => it.id)
+		return result
+	},
 
-        const result = await strapi.entityService.findMany(uid, {
-            populate: "previewImage",
-            fields: ['name', 'minMinuteRate'],
-            filters: {
-                id: {
-                    $in: ids
-                }
-            },
-        });
+	async all(_ctx) {
+		try {
+			const ids = await strapi.db.connection
+				.select('id')
+				.from(strapi.getModel(uid).collectionName)
 
-        return result
-    },
-}));
+			console.log(ids)
+
+			const result = await strapi.entityService.findMany(uid, {
+				populate: {
+					carType: {
+						fields: ['id', 'name'],
+					},
+					previewImage: {
+						fields: ['url', 'alternativeText'],
+					},
+				},
+				fields: ['name', 'minMinuteRate', 'isWrapped'],
+				filters: {
+					id: {
+						$in: [1],
+					},
+				},
+			})
+
+			return { data: result }
+		} catch (error) {
+			return { error }
+		}
+	},
+}))

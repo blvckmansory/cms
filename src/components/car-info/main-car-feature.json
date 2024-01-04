@@ -1,21 +1,25 @@
 {
   "collectionName": "components_car_info_main_car_features",
   "info": {
-    "displayName": "MainCarFeature"
+    "displayName": "MainCarFeature",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "icon": {
-      "type": "customField",
-      "required": true,
-      "customField": "plugin::react-icons.icon"
-    },
     "name": {
       "type": "string",
       "required": true
     },
     "description": {
       "type": "string",
+      "required": true
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }
