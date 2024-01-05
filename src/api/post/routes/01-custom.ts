@@ -18,7 +18,7 @@ export default {
 		},
 		{
 			method: 'GET',
-			path: '/posts/preview',
+			path: '/posts',
 			handler: 'post.preview',
 			config: {
 				auth: false,
