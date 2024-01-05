@@ -2,8 +2,8 @@ export default {
     routes: [
         {
             method: 'GET',
-            path: '/cars/random',
-            handler: 'car.random',
+            path: '/docs/all',
+            handler: 'doc.all',
             config: {
                 auth: false,
             },
