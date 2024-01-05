@@ -4,11 +4,23 @@
 
 import { factories } from '@strapi/strapi'
 
-import { parseQueryParams } from '../../car/controllers/car'
+import { parseQueryParams } from '../../utils'
 
 const uid = 'api::post.post' as const
 
 export default factories.createCoreController(uid, ({ strapi }) => ({
+	async ids(_ctx) {
+		try {
+			const data = await strapi.db.connection
+				.select('id')
+				.from(strapi.getModel(uid).collectionName)
+
+			return { data }
+		} catch (error) {
+			return { data: null, error }
+		}
+	},
+
 	async single(ctx) {
 		try {
 			const queryParams = parseQueryParams(ctx.url)
@@ -18,7 +30,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 				populate: {
 					cover: { fields: ['url'] },
 				},
-				fields: ['title', 'description'],
+				fields: ['id', 'title', 'description', 'content', 'createdAt', 'publishedAt'],
 			})
 
 			return {
@@ -46,14 +58,16 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 				populate: {
 					cover: { fields: ['url'] },
 				},
-				fields: ['title', 'description'],
+				fields: ['id', 'title', 'description'],
 			})
 
 			return {
 				data,
 				meta: {
-					...pagination,
-					total,
+					pagination: {
+						...pagination,
+						total,
+					},
 				},
 			}
 		} catch (error) {
@@ -80,7 +94,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 				populate: {
 					cover: { fields: ['url'] },
 				},
-				fields: ['title', 'description'],
+				fields: ['id', 'title', 'description'],
 				filters: {
 					id: {
 						$in: ids,

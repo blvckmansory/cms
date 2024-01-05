@@ -4,7 +4,7 @@
 
 import { factories } from '@strapi/strapi'
 
-import { parseQueryParams } from '../../car/controllers/car'
+import { parseQueryParams } from '../../utils'
 
 const uid = 'api::hint.hint' as const
 

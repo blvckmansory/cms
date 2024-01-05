@@ -2,60 +2,28 @@
  * @implements `Car` controller
  */
 
-import { URLSearchParams } from 'node:url'
-
 import { factories } from '@strapi/strapi'
+
+import { parseQueryParams } from '../../utils'
 
 const uid = 'api::car.car' as const
 
-export const parseQueryParams = (url: string): URLSearchParams => {
-	const queryString = url.split('?').at(-1) || ''
-	return new URLSearchParams(queryString)
-}
-
 export default factories.createCoreController(uid, ({ strapi }) => ({
 	async random(ctx) {
-		const queryParams = parseQueryParams(ctx.url)
-		const excludeId = queryParams.get('id') || 0
-
-		const ids = (
-			await strapi.db.connection
-				.select('id')
-				.from(strapi.getModel(uid).collectionName)
-				.whereNotIn('id', [excludeId])
-				.orderByRaw('RANDOM()')
-				.limit(3)
-		).map((it) => it.id)
-
-		const result = await strapi.entityService.findMany(uid, {
-			populate: {
-				carType: {
-					fields: ['id', 'name'],
-				},
-				previewImage: {
-					fields: ['url', 'alternativeText'],
-				},
-			},
-			fields: ['name', 'minMinuteRate', 'isWrapped'],
-			filters: {
-				id: {
-					$in: ids,
-				},
-			},
-		})
-
-		return result
-	},
-
-	async all(_ctx) {
 		try {
-			const ids = await strapi.db.connection
-				.select('id')
-				.from(strapi.getModel(uid).collectionName)
+			const queryParams = parseQueryParams(ctx.url)
+			const excludeId = queryParams.get('id') || 0
 
-			console.log(ids)
+			const ids = (
+				await strapi.db.connection
+					.select('id')
+					.from(strapi.getModel(uid).collectionName)
+					.whereNotIn('id', [excludeId])
+					.orderByRaw('RANDOM()')
+					.limit(3)
+			).map((it) => it.id)
 
-			const result = await strapi.entityService.findMany(uid, {
+			const data = await strapi.entityService.findMany(uid, {
 				populate: {
 					carType: {
 						fields: ['id', 'name'],
@@ -67,14 +35,68 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 				fields: ['name', 'minMinuteRate', 'isWrapped'],
 				filters: {
 					id: {
-						$in: [1],
+						$in: ids,
 					},
 				},
 			})
 
-			return { data: result }
+			return { data }
 		} catch (error) {
-			return { error }
+			return { data: null, error }
+		}
+	},
+
+	async all(_ctx) {
+		try {
+			const data = await strapi.entityService.findMany(uid, {
+				populate: {
+					carType: {
+						fields: ['id', 'name'],
+					},
+					previewImage: {
+						fields: ['id', 'url'],
+					},
+				},
+				fields: ['name', 'minMinuteRate', 'isHot', 'isNew', 'isWrapped'],
+			})
+
+			return { data }
+		} catch (error) {
+			return { data: null, error }
+		}
+	},
+
+	async single(ctx) {
+		try {
+			const queryParams = parseQueryParams(ctx.url)
+			const id = queryParams.get('id')
+
+			if (!id) {
+				throw new Error('NOT_FOUND')
+			}
+
+			const data = await strapi.entityService.findOne(uid, id, {
+				populate: {
+					carType: {
+						fields: ['id', 'name'],
+					},
+					previewImage: {
+						fields: ['id', 'url'],
+					},
+					sideImages: {
+						populate: {},
+					},
+					rate: {
+						populate: {
+							ratesWithConditions: true,
+						},
+					},
+				},
+			})
+
+			return { data }
+		} catch (error) {
+			return { data: null, error }
 		}
 	},
 }))
