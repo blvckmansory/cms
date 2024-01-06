@@ -20,6 +20,16 @@
       "repeatable": false,
       "component": "rates-info.rate-types-with-conditions",
       "required": true
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rates-info.rate-option"
+    },
+    "discount": {
+      "type": "float",
+      "max": 1,
+      "min": 0
     }
   }
 }

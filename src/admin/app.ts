@@ -19,6 +19,7 @@ const brandTranslations = {
 	Rate: 'Тариф',
 	User: 'Пользователь',
 	icon: 'Иконка',
+	price: 'Цена',
 	label: 'Текст',
 	cover: 'Обложка',
 	title: 'Заголовок',
@@ -67,6 +68,8 @@ const brandTranslations = {
 	'plugin.schema.i18n.localized.label-field-type': 'i18n',
 	'Auth.form.welcome.title': 'Админ панель хеллошки!',
 	'Auth.form.welcome.subtitle': 'Войдите и настраивайте!',
+	'app.components.LeftMenu.navbrand.title': 'Hello.by',
+	'app.components.LeftMenu.navbrand.workplace': 'Панель управления',
 }
 
 export default {

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_rates_info_rate_options",
+  "info": {
+    "displayName": "RateOption"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 12
+    },
+    "price": {
+      "type": "float",
+      "max": 100000,
+      "min": 0
+    }
+  }
+}
