@@ -107,60 +107,51 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 			const queryParams = parseQueryParams(ctx.url)
 			const id = queryParams.get('id') || 0
 
-			const rateWithConditionsOptions = {
-				fields: ['id'],
-				populate: {
-					options: {
-						fields: ['name', 'price'],
-					},
-					conditions: {
-						fields: [
-							'id',
-							'isResident',
-							'experienceMoreThanYear',
-							'overTwentyThreeYears',
-						],
-					},
-				},
-			}
-
 			const data = await strapi.entityService.findOne(uid, id, {
 				populate: {
 					previewImage: {
-						fields: ['id', 'url'],
+						fields: ['url'],
 					},
 					sideImages: {
-						fields: ['id', 'color'],
-						populate: { image: { fields: ['id', 'url'] } },
+						fields: ['color'],
+						populate: { image: { fields: ['url'] } },
 					},
 					minutes: {
-						fields: ['id', 'minuteRate', 'minuteRateParking', 'isResident'],
+						fields: ['minuteRate', 'minuteRateParking', 'isResident'],
 					},
-					rate: {
-						fields: ['id', 'name'],
+					rates: {
+						fields: ['id'],
 						populate: {
-							ratesWithConditions: {
-								on: {
-									'rate-types.days-and-kms': rateWithConditionsOptions,
-									'rate-types.hours-and-kms': rateWithConditionsOptions,
-									'rate-types.minutes-and-kms': rateWithConditionsOptions,
+							rateType: {
+								fields: ['name', 'description'],
+							},
+							customRates: {
+								populate: {
+									options: {
+										fields: ['name', 'price'],
+									},
+									conditions: {
+										fields: [
+											'isResident',
+											'experienceMoreThanYear',
+											'overTwentyThreeYears',
+										],
+									},
 								},
-								fields: ['id'],
 							},
 						},
 					},
 					characteristics: {
-						fields: ['id'],
 						populate: {
 							mainFeatures: {
-								fields: ['id', 'name', 'description'],
-								populate: { icon: { fields: ['id', 'url'] } },
+								fields: ['name', 'description'],
+								populate: { icon: { fields: ['url'] } },
 							},
-							otherFeatures: { fields: ['id', 'name'] },
+							otherFeatures: { fields: ['name'] },
 						},
 					},
 					carType: {
-						fields: ['id', 'name'],
+						fields: ['name'],
 					},
 				},
 				fields: ['name', 'minMinuteRate', 'isNew', 'isWrapped', 'isHot', 'kmCost'],

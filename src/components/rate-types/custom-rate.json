@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_rate_types_hours_and_kms",
+  "collectionName": "components_rate_types_custom_rates",
   "info": {
-    "displayName": "hoursAndKms",
+    "displayName": "CustomRate",
     "description": ""
   },
   "options": {},
@@ -15,7 +15,9 @@
     "options": {
       "type": "component",
       "repeatable": true,
-      "component": "rates-info.rate-option"
+      "component": "rates-info.rate-option",
+      "required": true,
+      "min": 1
     },
     "discount": {
       "type": "float"

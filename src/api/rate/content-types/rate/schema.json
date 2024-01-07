@@ -16,21 +16,23 @@
       "type": "string",
       "required": true
     },
+    "customRates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rate-types.custom-rate",
+      "max": 4
+    },
+    "rateType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rate-type.rate-type",
+      "inversedBy": "rates"
+    },
     "cars": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::car.car",
-      "mappedBy": "rate"
-    },
-    "ratesWithConditions": {
-      "type": "dynamiczone",
-      "components": [
-        "rate-types.minutes-and-kms",
-        "rate-types.hours-and-kms",
-        "rate-types.days-and-kms"
-      ],
-      "required": false,
-      "max": 6
+      "mappedBy": "rates"
     }
   }
 }

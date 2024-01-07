@@ -13,10 +13,6 @@
     "minuteRateParking": {
       "type": "float",
       "required": true
-    },
-    "isResident": {
-      "type": "boolean",
-      "required": true
     }
   }
 }

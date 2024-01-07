@@ -55,17 +55,9 @@
       "type": "float",
       "required": false
     },
-    "minutes": {
-      "type": "component",
-      "repeatable": true,
-      "component": "rate-types.minutes",
-      "required": true,
-      "max": 2,
-      "min": 2
-    },
-    "rate": {
+    "rates": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::rate.rate",
       "inversedBy": "cars"
     },
@@ -80,6 +72,16 @@
       "relation": "manyToOne",
       "target": "api::car-type.car-type",
       "inversedBy": "cars"
+    },
+    "minutesResident": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rate-types.minutes"
+    },
+    "minutesNotResident": {
+      "type": "component",
+      "repeatable": false,
+      "component": "rate-types.minutes"
     }
   }
 }
