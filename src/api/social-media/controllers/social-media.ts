@@ -1,19 +1,19 @@
 /**
- * doc controller
+ * social-media controller
  */
 
 import { factories } from '@strapi/strapi'
 
-const uid = 'api::doc.doc' as const
+const uid = 'api::social-media.social-media' as const
 
 export default factories.createCoreController(uid, ({ strapi }) => ({
 	async all(_ctx) {
 		try {
 			const data = await strapi.entityService.findMany(uid, {
 				populate: {
-					file: { fields: ['url'] },
+					icon: { fields: ['url'] },
 				},
-				fields: ['id', 'name'],
+				fields: ['id', 'name', 'href'],
 			})
 
 			return { data }

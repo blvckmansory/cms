@@ -70,8 +70,9 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 	async allIDs(_ctx) {
 		try {
 			const data = await strapi.entityService.findMany(uid, {
-				fields: ['id'],
+				fields: ['id', 'name'],
 			})
+
 			return { data }
 		} catch (error) {
 			return { data: null, error }

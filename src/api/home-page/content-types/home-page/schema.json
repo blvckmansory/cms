@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "docs",
+  "kind": "singleType",
+  "collectionName": "home_pages",
   "info": {
-    "singularName": "doc",
-    "pluralName": "docs",
-    "displayName": "Document",
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage",
     "description": ""
   },
   "options": {
@@ -12,17 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
+    "description": {
+      "type": "richtext",
       "required": true,
-      "maxLength": 50
+      "maxLength": 240
     },
-    "file": {
+    "cover": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
-        "files",
         "images"
       ]
     }
