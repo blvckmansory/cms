@@ -4,7 +4,8 @@
   "info": {
     "singularName": "business-page",
     "pluralName": "business-pages",
-    "displayName": "BusinessPage"
+    "displayName": "Для бизнеса",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,21 +13,21 @@
   "pluginOptions": {},
   "attributes": {
     "cover": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "contract": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     }
   }
 }

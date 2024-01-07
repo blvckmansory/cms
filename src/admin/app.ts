@@ -2,7 +2,7 @@ import ru from './src/translations/ru.json'
 import HelloLogo from './extensions/favicon.png'
 
 const brandTranslations = {
-	'rate-types': 'Типы тарифов',
+	RateType: 'Типы тарифов',
 	Document: 'Документ',
 	notFound: '404',
 	noData: 'Нет данных',
