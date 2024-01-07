@@ -6,29 +6,19 @@
   },
   "options": {},
   "attributes": {
-    "dayRate": {
-      "type": "float"
-    },
-    "twoDaysRate": {
-      "type": "float"
-    },
-    "threeDaysRate": {
-      "type": "float"
-    },
-    "fiveDaysRate": {
-      "type": "float"
-    },
-    "sevenDaysRate": {
-      "type": "float"
-    },
-    "fourteenDaysRate": {
-      "type": "float"
-    },
     "conditions": {
       "type": "component",
       "repeatable": false,
       "component": "rates-info.rate-types-with-conditions",
       "required": true
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rates-info.rate-option"
+    },
+    "discount": {
+      "type": "float"
     }
   }
 }

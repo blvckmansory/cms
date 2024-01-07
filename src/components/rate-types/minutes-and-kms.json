@@ -6,15 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "halfHourRate": {
-      "type": "float"
-    },
-    "hourRate": {
-      "type": "float"
-    },
-    "twoHoursRate": {
-      "type": "float"
-    },
     "conditions": {
       "type": "component",
       "repeatable": false,
