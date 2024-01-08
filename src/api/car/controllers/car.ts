@@ -123,7 +123,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 						fields: ['id'],
 						populate: {
 							rateType: {
-								fields: ['name', 'description'],
+								fields: ['name', 'description', 'footer'],
 							},
 							customRates: {
 								populate: {
