@@ -25,6 +25,10 @@
     "description": {
       "type": "richtext",
       "required": true
+    },
+    "footer": {
+      "type": "string",
+      "required": true
     }
   }
 }
