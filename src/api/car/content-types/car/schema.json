@@ -51,10 +51,6 @@
       "required": true,
       "min": 1
     },
-    "kmCost": {
-      "type": "float",
-      "required": false
-    },
     "rates": {
       "type": "relation",
       "relation": "manyToMany",
@@ -73,15 +69,10 @@
       "target": "api::car-type.car-type",
       "inversedBy": "cars"
     },
-    "minutesResident": {
+    "conditions": {
       "type": "component",
-      "repeatable": false,
-      "component": "rate-types.minutes"
-    },
-    "minutesNotResident": {
-      "type": "component",
-      "repeatable": false,
-      "component": "rate-types.minutes"
+      "repeatable": true,
+      "component": "util.string-component"
     }
   }
 }

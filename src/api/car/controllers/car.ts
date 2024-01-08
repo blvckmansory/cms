@@ -116,9 +116,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 						fields: ['color'],
 						populate: { image: { fields: ['url'] } },
 					},
-					minutes: {
-						fields: ['minuteRate', 'minuteRateParking', 'isResident'],
-					},
+
 					rates: {
 						fields: ['id'],
 						populate: {
@@ -155,7 +153,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 						fields: ['name'],
 					},
 				},
-				fields: ['name', 'minMinuteRate', 'isNew', 'isWrapped', 'isHot', 'kmCost'],
+				fields: ['name', 'minMinuteRate', 'isNew', 'isWrapped', 'isHot'],
 			})
 
 			return { data }

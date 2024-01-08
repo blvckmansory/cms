@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_util_string_components",
+  "info": {
+    "displayName": "StringComponent",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
