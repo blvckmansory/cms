@@ -21,6 +21,9 @@
     },
     "discount": {
       "type": "float"
+    },
+    "cost": {
+      "type": "float"
     }
   }
 }

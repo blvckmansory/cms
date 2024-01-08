@@ -126,6 +126,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 								fields: ['name', 'description', 'footer'],
 							},
 							customRates: {
+								fields: ['discount', 'cost'],
 								populate: {
 									options: {
 										fields: ['name', 'price'],
