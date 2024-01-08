@@ -116,7 +116,9 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 						fields: ['color'],
 						populate: { image: { fields: ['url'] } },
 					},
-
+					conditions: {
+						fields: ['id', 'name'],
+					},
 					rates: {
 						fields: ['id'],
 						populate: {
