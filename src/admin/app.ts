@@ -3,6 +3,9 @@ import HelloLogo from './extensions/favicon.png'
 
 const brandTranslations = {
 	RateType: 'Типы тарифов',
+	rates: 'Тарифы',
+	file: 'Файл',
+	footer: 'Футер',
 	Document: 'Документ',
 	notFound: '404',
 	noData: 'Нет данных',
