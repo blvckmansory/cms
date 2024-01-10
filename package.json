@@ -11,8 +11,8 @@
 	},
 	"scripts": {
 		"build": "strapi build",
-		"dev": "docker-compose up -d && strapi develop --watch-admin",
-		"start": "strapi start",
+		"dev": "docker compose up -d && strapi develop --watch-admin",
+		"start": "docker compose up -d && strapi start",
 		"strapi": "strapi"
 	},
 	"dependencies": {
