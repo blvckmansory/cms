@@ -59,6 +59,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 					},
 				},
 				fields: ['name', 'minMinuteRate', 'isHot', 'isNew', 'isWrapped'],
+				sort: { publishedAt: 'desc' },
 			})
 
 			return { data }

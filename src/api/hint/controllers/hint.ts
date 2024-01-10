@@ -26,6 +26,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 					'createdAt',
 					'publishedAt',
 				],
+				sort: { createdAt: 'desc' },
 				filters: {
 					hintType: {
 						$eq: hintType,

@@ -55,10 +55,11 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 
 			const data = await strapi.entityService.findMany(uid, {
 				...pagination,
+				fields: ['id', 'title', 'description'],
+				sort: { publishedAt: 'desc' },
 				populate: {
 					cover: { fields: ['url'] },
 				},
-				fields: ['id', 'title', 'description'],
 			})
 
 			return {
