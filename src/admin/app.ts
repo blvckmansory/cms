@@ -5,6 +5,8 @@ const brandTranslations = {
 	RateType: 'Типы тарифов',
 	rates: 'Тарифы',
 	file: 'Файл',
+	newPrice: 'Цена со скидкой',
+	colorImage: 'Обложка',
 	footer: 'Футер',
 	Document: 'Документ',
 	notFound: '404',
