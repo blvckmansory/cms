@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-	host: env('STRAPI_DOMAIN', '0.0.0.0'),
+	host: env('STRAPI_DOMAIN', '127.0.0.1'),
 	port: env.int('STRAPI_PORT', 1337),
 	app: {
 		keys: env.array('APP_KEYS'),
@@ -7,5 +7,5 @@ export default ({ env }) => ({
 	webhooks: {
 		populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
 	},
-	url: env('STRAPI_URL', 'http://127.0.0.1'),
+	url: env('STRAPI_URL'),
 })
