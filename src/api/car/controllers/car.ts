@@ -59,7 +59,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 					},
 				},
 				fields: ['name', 'minMinuteRate', 'isHot', 'isNew', 'isWrapped'],
-				sort: { publishedAt: 'desc' },
+				sort: [{ carType: { id: 'asc' } }, { publishedAt: 'desc' }],
 			})
 
 			return { data }
@@ -71,7 +71,8 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 	async allIDs(_ctx) {
 		try {
 			const data = await strapi.entityService.findMany(uid, {
-				fields: ['id', 'name'],
+				fields: ['id', 'name', 'isWrapped'],
+				sort: [{ carType: { id: 'asc' } }, { publishedAt: 'desc' }],
 			})
 
 			return { data }
@@ -115,7 +116,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 					},
 					sideImages: {
 						fields: ['color'],
-						populate: { image: { fields: ['url'] } },
+						populate: { image: { fields: ['url'] }, colorImage: { fields: ['url'] } },
 					},
 					conditions: {
 						fields: ['id', 'name'],
@@ -130,7 +131,7 @@ export default factories.createCoreController(uid, ({ strapi }) => ({
 								fields: ['discount', 'cost'],
 								populate: {
 									options: {
-										fields: ['name', 'price'],
+										fields: ['name', 'price', 'newPrice'],
 									},
 									conditions: {
 										fields: [

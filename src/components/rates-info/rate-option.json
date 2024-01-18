@@ -1,7 +1,8 @@
 {
   "collectionName": "components_rates_info_rate_options",
   "info": {
-    "displayName": "RateOption"
+    "displayName": "RateOption",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,6 +15,9 @@
       "type": "float",
       "max": 100000,
       "min": 0
+    },
+    "newPrice": {
+      "type": "float"
     }
   }
 }
